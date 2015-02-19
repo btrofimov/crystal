@@ -1,3 +1,6 @@
+import com.twitter.scalding._
+import cascading.pipe.joiner._
+
 /**
 * The class represents just one iteration of searching connected component algorithm.
 * Somewhere outside the Job code we have to run this job iteratively until N [~20] and should check number inside "count" file.
