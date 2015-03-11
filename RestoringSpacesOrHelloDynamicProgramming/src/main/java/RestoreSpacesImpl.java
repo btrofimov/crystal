@@ -33,13 +33,14 @@ class RestoreSpacesImpl{
 	protected List<Integer> buildMap(String input){
 		if(input.length()==0)
 			return Collections.emptyList();
-		
+		// cache of previous solutions
 		List<List<Integer>> previous = new ArrayList<>(input.length());		
-		
+		// the first major cycle, on every step i we find solution for substring length i
 		for(int i = 0;i<input.length();i++){
 			int max = 0;
-			
 			Integer max_j = null; 
+			// the second cycle, trying to find such j where this combination is the best: 
+			// [<previous best solution>,<index j>,<word in dictionary>,<index i>,...<rest of input string>]
 			for(int j = 0; j<=i; j++){
 				if(dict.contains(input.substring(j,i+1)) && (j==0 || previous.get(j-1).size()>0)){
 					
@@ -51,6 +52,7 @@ class RestoreSpacesImpl{
 					}
 				}
 			}
+			// build list indexes for current i-step solution
 			List<Integer> arr = new LinkedList<>();
 			if(max_j != null){
 				if(max_j>0)
@@ -59,8 +61,8 @@ class RestoreSpacesImpl{
 				
 			}
 			previous.add(arr);
-			
 		}	
+		// return the solution for last step for char with index (input.length-1) which is basicly the best solution for entire input stringg
 		return previous.get(previous.size()-1);
 	}
 	
@@ -71,10 +73,8 @@ class RestoreSpacesImpl{
 	 * @return
 	 */
 	protected String restoreString(String input, List<Integer> map){
-		
 		if(map.size()==0)
 			return input;
-		
 		StringBuilder ret = new StringBuilder();
 		for(int i = 0;i<map.size();i++){
 			int rightBound = map.size()>i+1?map.get(i+1):input.length();
