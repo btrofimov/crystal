@@ -18,7 +18,7 @@ import MatrixTraveller._
  *
  * Considered below implementation uses "big O" O( (N + M - 2 ) * min(N,M) ) and consumes RAM min(N,M)
  * This algorithm uses idea of dynamic programming where optimal solution for i step relies on optimal solutions for i-1 step
- * For example below we have 5 steps, every step contains one or more cells with own optimal solution:
+ * For example below we have 5 steps, every step consists of one or more cells with own optimal solution and step id:
  * +---------------+
  * | 2 | 3 | 4 | 5 |
  * +---------------|
