@@ -21,8 +21,8 @@ import MatrixTraveller._
  * +---------------+
  *
  * The benefit of dynamic approach is
- * * polynomial complexity O( (N + M - 2 ) * min(N,M) )
- * * RAM consumption does not depend on NxM. Each i step we need to keep optimal solutions for just previous step (!). 
+ * - polynomial complexity O( (N + M - 2 ) * min(N,M) )
+ * - RAM consumption does not depend on NxM. Each i step we need to keep optimal solutions for just previous step (!). 
  *   This idea drammatically reduces RAM consumption
  *   Final consumption is about min(N,M) (this is size of max diagonal)
  */
