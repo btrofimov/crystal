@@ -44,7 +44,7 @@ class RestoreSpacesImpl{
 			// the second cycle, trying to find such j where this combination is the best: 
 			// [<previous best solution>,<index j>,<word in dictionary>,<index i>,...<rest of input string>]
 			for(int j = 0; j<=i; j++){
-				// skip zero solutions or if word [j,..,i] does not contain in dict
+				// skip zero solutions or if word [j,..,i] is not contained in dict
 				if(dict.contains(input.substring(j,i+1)) && (j==0 || previous.get(j-1).size()>0)){ // skip all zero solutions
 					
 					int prev_max = j==0?0:previous.get(j-1).size();
