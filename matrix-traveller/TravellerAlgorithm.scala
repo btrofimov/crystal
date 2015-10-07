@@ -80,8 +80,9 @@ class MatrixTraveller {
       }
       .toMap
     }
-    // return solution for the last step - it is top-right cell
-    (null,previousOptSolutions((0, M - 1)))
+    val lastPos = (0, M - 1) // top-right cell
+    // return solution for the last step, the first parameter is reserved for route itself
+    (null, previousOptSolutions(lastPos)
   }
 
   private def takeDiagonalElements (step: Int)(implicit matrix: Matrix): List[Point] = {
