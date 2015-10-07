@@ -5,7 +5,8 @@ import MatrixTraveller._
 
 /**
  * Given matrix NxM and traveller standing on left-bottom cell. Each matrix's cell contains penalty value.
- * Traveller is able to move only right and up and has to reach right-top cell following minimal route. (sum of involved cells is minimal)
+ * Traveller is able to move only right and up and has to reach right-top cell following 
+ * minimal route (sum of involved cells is minimal)
  * So the task is to find total penalty value for found minimal route.
  *
  * Considered below implementation uses "big O" O( (N + M - 2 ) * min(N,M) ) and consumes RAM min(N,M)
@@ -21,7 +22,8 @@ import MatrixTraveller._
  *
  * The benefit of dynamic approach is
  * * polynomial complexity O( (N + M - 2 ) * min(N,M) )
- * * RAM consumption does not depend on NxM. Each i step we need to keep optimal solutions for just previous step (!). This idea drammatically reduces RAM consumption
+ * * RAM consumption does not depend on NxM. Each i step we need to keep optimal solutions for just previous step (!). 
+ *   This idea drammatically reduces RAM consumption
  *   Final consumption is about min(N,M) (this is size of max diagonal)
  */
 
