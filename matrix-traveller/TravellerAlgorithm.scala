@@ -8,10 +8,17 @@ import MatrixTraveller._
  * Traveller is able to move only right and up and has to reach right-top cell following 
  * minimal route (sum of involved cells is minimal)
  * So the task is to find total penalty value for found minimal route.
+ * +---------------+
+ * | 0 | 0 | 0 | ⚑ |
+ * +---------------|
+ * | 9 | 9 | 8 | 7 |
+ * +-↑-------------|
+ * | ⚐ → 1 | 2 | 3 |
+ * +---------------+
  *
  * Considered below implementation uses "big O" O( (N + M - 2 ) * min(N,M) ) and consumes RAM min(N,M)
  * This algorithm uses idea of dynamic programming where optimal solution for i step relies on optimal solutions for i-1 step
- * For example below we have 5 steps, every step contains one or more cells with own optimal solution.
+ * For example below we have 5 steps, every step contains one or more cells with own optimal solution:
  * +---------------+
  * | 2 | 3 | 4 | 5 |
  * +---------------|
