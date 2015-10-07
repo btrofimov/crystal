@@ -10,7 +10,7 @@ import MatrixTraveller._
  * So the task is to find total penalty value for found minimal route.
  *
  * Considered below implementation uses "big O" O( (N + M - 2 ) * min(N,M) ) and consumes RAM min(N,M)
- * This algorithm uses idea of dynamic programming where optimal solution on i step depends on optimal solutions on i-1 step
+ * This algorithm uses idea of dynamic programming where optimal solution for i step relies on optimal solutions for i-1 step
  * For example below we have 5 steps, every step contains one or more cells with own optimal solution.
  * +---------------+
  * | 2 | 3 | 4 | 5 |
