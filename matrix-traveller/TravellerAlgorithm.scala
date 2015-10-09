@@ -78,7 +78,8 @@ class MatrixTraveller {
         val leftElem = (elem._1    , elem._2 - 1)
         val downElem = (elem._1 + 1, elem._2    )
 
-        val minDiagElem = List((leftElem,previousOptSolutions.get(leftElem)), (downElem,previousOptSolutions.get(downElem)))
+        val minDiagElem = List(leftElem, rightElem)
+          .map { el => (el, previousOptSolutions.get(el)) }
           .filter(_._2.isDefined)
           .map { el => (el._1,el._2.get) }
           .min
