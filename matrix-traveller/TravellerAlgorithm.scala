@@ -1,4 +1,3 @@
-
 import scala.collection.mutable.ListBuffer
 import MatrixTraveller._
 
@@ -78,7 +77,7 @@ class MatrixTraveller {
         val leftElem = (elem._1    , elem._2 - 1)
         val downElem = (elem._1 + 1, elem._2    )
 
-        val minDiagElem = List(leftElem, rightElem)
+        val minDiagElem = List(leftElem, downElem)
           .map { el => (el, previousOptSolutions.get(el)) }
           .filter(_._2.isDefined)
           .map { el => (el._1,el._2.get) }
@@ -86,11 +85,11 @@ class MatrixTraveller {
 
         (elem, minDiagElem._2 + matrix(elem) )
       }
-      .toMap
+        .toMap
     }
     val lastPos = (0, M - 1) // top-right cell
     // return solution for the last step, the first parameter is reserved for route itself
-    (null, previousOptSolutions(lastPos)
+    (null, previousOptSolutions(lastPos))
   }
 
   private def takeDiagonalElements (step: Int)(implicit matrix: Matrix): List[Point] = {
