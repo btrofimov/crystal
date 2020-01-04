@@ -96,8 +96,8 @@ class MatrixTraveller {
     import matrix._
     val diagSize = min(matrix.N,matrix.M)
     val ret = new ListBuffer[Point]()
-    var n = if (step / N == 0) N - step- 1 else 0
-    var m = if (step / N == 0) 0 else step - N + 1
+    var n = if (step / N == 0) (N - step - 1) else 0
+    var m = if (step / N == 0) 0 else (step - N + 1)
     ret += ((n,m))
     while (((n + 1) < N) && ((m + 1) < M)) {
       n += 1
@@ -108,7 +108,7 @@ class MatrixTraveller {
   }
 
   /**
-   * override compare procedure for min call, see 75 loc above
+   * override compare procedure for min call, see 84th loc above
    */
   implicit val ordering = new Ordering[(Point, MaxScore)] {
     override def compare(x: (Point, MaxScore), y: (Point, MaxScore)): Int = x._2 - y._2
