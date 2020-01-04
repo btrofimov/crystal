@@ -47,7 +47,7 @@ object MatrixTraveller {
  * Helpful Matrix representation and its dependent object-initializer
  *
  */
-case class Matrix (N: Int, M:Int, elements: Vector[Vector[Int]]) {
+case class Matrix (N: Int, M: Int, elements: Vector[Vector[Int]]) {
   def apply(i : Int) : Vector[Int] = elements(i)
   def apply(i : Point) : Int = elements(i._1)(i._2)
 }
@@ -74,13 +74,13 @@ class MatrixTraveller {
     (1 to (N + M - 2)) foreach { step =>
       // run through all sub-diagonal elements for this step
       previousOptSolutions = takeDiagonalElements(step).map { elem =>
-        val leftElem = (elem._1    , elem._2 - 1)
+        val leftElem = (elem._1,     elem._2 - 1)
         val downElem = (elem._1 + 1, elem._2    )
 
         val minDiagElem = List(leftElem, downElem)
-          .map { el => (el, previousOptSolutions.get(el)) }
+          .map ( el => (el, previousOptSolutions.get(el)) )
           .filter(_._2.isDefined)
-          .map { el => (el._1,el._2.get) }
+          .map ( el => (el._1, el._2.get) )
           .min
 
         (elem, minDiagElem._2 + matrix(elem) )
@@ -96,13 +96,13 @@ class MatrixTraveller {
     import matrix._
     val diagSize = min(matrix.N,matrix.M)
     val ret = new ListBuffer[Point]()
-    var n = if (step/N == 0) N - step- 1 else 0
-    var m = if (step/N == 0) 0 else step - N + 1
+    var n = if (step / N == 0) N - step- 1 else 0
+    var m = if (step / N == 0) 0 else step - N + 1
     ret += ((n,m))
-    while(n+1 < N && m+1 < M) {
-      n +=1
-      m +=1
-      ret += ((n,m))
+    while (((n + 1) < N) && ((m + 1) < M)) {
+      n += 1
+      m += 1
+      ret += ((n, m))
     }
     ret.toList
   }
@@ -110,7 +110,7 @@ class MatrixTraveller {
   /**
    * override compare procedure for min call, see 75 loc above
    */
-  implicit val ordering = new Ordering[(Point, MaxScore)]{
+  implicit val ordering = new Ordering[(Point, MaxScore)] {
     override def compare(x: (Point, MaxScore), y: (Point, MaxScore)): Int = x._2 - y._2
   }
 
